@@ -5,66 +5,74 @@ body {
 }
 
 .main-header {
-    background-color: rgba(0, 0, 0, .3);
-    padding-bottom: 10px;
-}
-
-.title {
+    background-color: rgba(180, 33, 33, 0.3);
+    padding: 20px;
     text-align: center;
-    margin: 0;
-    font-size: 8em;
-    font-family: "Helvetica";
-    font-weight: normal;
-    color: white;
 }
 
-#card-container {
+.container {
     display: flex;
-    justify-content: center;
-    margin: 20px;
+    padding: 20px;
 }
 
-.card {
-    width: 300px;
+#services-list {
+    flex: 2;
+    padding-right: 10px; /* Add padding between columns */
+}
+
+#selected-services {
+    flex: 1;
+    padding-left: 10px; /* Add padding between columns */
+}
+
+.column {
+    flex: 1;
+    overflow-y: auto; /* Add scrollbar for vertical overflow */
+    max-height: 700px; /* Set maximum height for the column */
+}
+
+.service {
     border: 1px solid #ccc;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: 5px;
-}
-
-.card-content {
-    padding: 20px;
-    font-family: "Verdana";
-    color: #777;
-}
-
-.card-content h2 {
-    margin-top: 0;
-    font-size: 20px;
-}
-
-.card img {
-    width: 100%;
-    height: auto;
-}
-
-.footer {
-    display: flex;
-    justify-content: center;
-    background-color: rgba(0, 0, 0, .3);
     padding: 10px;
+    margin-bottom: 10px;
+}
+
+.selected-service {
+    margin-bottom: 5px;
 }
 
 button {
-    text-align: center;
-    background-color: #666;
-    border: none;
-    padding-left: 10px;
-    padding-right: 10px;
-    height: 40px;
-    border-radius: 10px;
+    background-color: #4CAF50;
     color: white;
-    font-size: 22px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
-    margin: 5px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#totals {
+    margin-top: 20px;
+}
+
+#sorting-options {
+    padding: 20px;
+}
+
+#sorting-options button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+#sorting-options button:hover {
+    background-color: #45a049;
 }
