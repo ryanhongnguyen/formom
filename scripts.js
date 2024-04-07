@@ -1,29 +1,3 @@
-/**
- * Data Catalog Project Starter Code - SEA Stage 2
- *
- * This file is where you should be doing most of your work. You should
- * also make changes to the HTML and CSS files, but we want you to prioritize
- * demonstrating your understanding of data structures, and you'll do that
- * with the JavaScript code you write in this file.
- * 
- * The comments in this file are only to help you learn how the starter code
- * works. The instructions for the project are in the README. That said, here
- * are the three things you should do first to learn about the starter code:
- * - 1 - Change something small in index.html or style.css, then reload your 
- *    browser and make sure you can see that change. 
- * - 2 - On your browser, right click anywhere on the page and select
- *    "Inspect" to open the browser developer tools. Then, go to the "console"
- *    tab in the new window that opened up. This console is where you will see
- *    JavaScript errors and logs, which is extremely helpful for debugging.
- *    (These instructions assume you're using Chrome, opening developer tools
- *    may be different on other browsers. We suggest using Chrome.)
- * - 3 - Add another string to the titles array a few lines down. Reload your
- *    browser and observe what happens. You should see a fourth "card" appear
- *    with the string you added to the array, but a broken image.
- * 
- */
-
-
 class NailService {
     constructor(title, type, description, time_duration, price) {
         this.title = title;
@@ -67,3 +41,54 @@ function displayServices(servicesToDisplay) {
         servicesList.appendChild(serviceElem);
     });
 }
+
+function selectService(title, price, time_duration) {
+    const selectedServicesList = document.getElementById('selected-services-list');
+    const totalPriceElem = document.getElementById('total-price');
+    const taxElem = document.getElementById('tax');
+    const totalElem = document.getElementById('total');
+    const totalDurationElem = document.getElementById('total-duration');
+
+    const listItem = document.createElement('li');
+    listItem.textContent = `${title} - $${price}`;
+    selectedServicesList.appendChild(listItem);
+
+    const totalPrice = parseFloat(totalPriceElem.textContent.replace('$', ''));
+    totalPriceElem.textContent = `$${(totalPrice + price).toFixed(2)}`;
+
+    const tax = parseFloat(totalPriceElem.textContent.replace('$', '')) * 0.1025;
+    taxElem.textContent = `$${tax.toFixed(2)}`;
+
+    totalElem.textContent = `$${(totalPrice + price + tax).toFixed(2)}`;
+
+    const totalDuration = parseInt(totalDurationElem.textContent.replace(' minutes', ''));
+    totalDurationElem.textContent = `${totalDuration + time_duration} minutes`;
+}
+
+function sortServices(sortBy) {
+    let sortedServices = [];
+
+    switch (sortBy) {
+        case 'price':
+            sortedServices = services.slice().sort((a, b) => a.price - b.price);
+            break;
+        case 'time':
+            sortedServices = services.slice().sort((a, b) => a.time_duration - b.time_duration);
+            break;
+        case 'manicure':
+            sortedServices = services.filter(service => service.type === 'Manicure');
+            break;
+        case 'pedicure':
+            sortedServices = services.filter(service => service.type === 'Pedicure');
+            break;
+        default:
+            sortedServices = services.slice(); // Default to original order
+            break;
+    }
+    displayServices(sortedServices);
+}
+
+
+window.onload = function() {
+    displayServices(services);
+};
