@@ -88,6 +88,23 @@ function sortServices(sortBy) {
     displayServices(sortedServices);
 }
 
+function searchServices() {
+    const searchInput = document.getElementById('search-input').value.toLowerCase();
+    const searchTerms = searchInput.split(' ').filter(term => term.trim() !== ''); // Split search input into individual terms
+
+    const filteredServices = services.filter(service => {
+        return searchTerms.every(term => service.title.toLowerCase().includes(term));
+    });
+
+    const resultMessage = document.getElementById('search-result');
+    if (filteredServices.length > 0) {
+        resultMessage.textContent = '';
+    } else {
+        resultMessage.textContent = 'No services match your search.';
+    }
+
+    displayServices(filteredServices);
+}
 
 window.onload = function() {
     displayServices(services);
