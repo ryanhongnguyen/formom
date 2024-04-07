@@ -1,3 +1,17 @@
+const data = 
+`Mani Regular Polish;Manicure;Cozy up your nails with our classic colors. Like a warm hug for your fingertips!;20;19
+Mani Gel Polish;Manicure;Stronger than your ex's resolve. Shiny nails for days!;15;33
+Mani w/Regular Design;Manicure;Nail art that's VIP. Your fingertips, the life of the party!;25;31
+Mani w/Gel Design;Manicure;Red carpet nails. Shine brighter than your future!;35;40
+Mani w/Paraffin Wax Reg;Manicure;Soft hands, Bahama vacation. Bye-bye dry skin!;18;26
+Mani w/Paraffin Wax Gel;Manicure;Bubble bath for your nails. Luxurious and smooth!;28;40
+Pedi Reg Polish;Pedicure;Toe party time. Sparkle like you mean it!;18;25
+Pedi Gel Polish;Pedicure;Armor for your toes. Say no to chipped nails!;25;39
+Pedi Acrylic Reg;Pedicure;Queen-worthy toes. Fabulous makeover included!;22;35
+Pedi Acrylic Gel;Pedicure;Glamorous toes with their own entourage. Ready to shine!;35;49
+Pedi Design Reg;Pedicure;Toe art masterpiece. Unique and fabulous!;27;32
+Pedi Design Gel;Pedicure;Fashion show for your toes. Style that stands out!;35;46`;
+
 class NailService {
     constructor(title, type, description, time_duration, price) {
         this.title = title;
@@ -8,20 +22,14 @@ class NailService {
     }
 }
 
-const services = [
-    new NailService("Mani Regular Polish", "Manicure", "Cozy up your nails with our classic colors. Like a warm hug for your fingertips!", 20, 19),
-    new NailService("Mani Gel Polish", "Manicure", "Stronger than your ex's resolve. Shiny nails for days!", 15, 33),
-    new NailService("Mani w/Regular Design", "Manicure", "Nail art that's VIP. Your fingertips, the life of the party!", 25, 31),
-    new NailService("Mani w/Gel Design", "Manicure", "Red carpet nails. Shine brighter than your future!", 35, 40),
-    new NailService("Mani w/Paraffin Wax Reg", "Manicure", "Soft hands, Bahama vacation. Bye-bye dry skin!", 18, 26),
-    new NailService("Mani w/Paraffin Wax Gel", "Manicure", "Bubble bath for your nails. Luxurious and smooth!", 28, 40),
-    new NailService("Pedi Reg Polish", "Pedicure", "Toe party time. Sparkle like you mean it!", 18, 25),
-    new NailService("Pedi Gel Polish", "Pedicure", "Armor for your toes. Say no to chipped nails!", 25, 39),
-    new NailService("Pedi Acrylic Reg", "Pedicure", "Queen-worthy toes. Fabulous makeover included!", 22, 35),
-    new NailService("Pedi Acrylic Gel", "Pedicure", "Glamorous toes with their own entourage. Ready to shine!", 35, 49),
-    new NailService("Pedi Design Reg", "Pedicure", "Toe art masterpiece. Unique and fabulous!", 27, 32),
-    new NailService("Pedi Design Gel", "Pedicure", "Fashion show for your toes. Style that stands out!", 35, 46),
-];
+const lines = data.split('\n');
+
+const services = lines.map(line => {
+    const properties = line.split(';');
+    const [title, type, description, time_duration, price] = properties;
+    const service = new NailService(title, type, description, parseInt(time_duration), parseInt(price));
+    return service;
+});
 
 function displayServices(servicesToDisplay) {
     const servicesList = document.getElementById('services-list');
