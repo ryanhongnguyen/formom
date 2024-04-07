@@ -24,71 +24,46 @@
  */
 
 
-const FRESH_PRINCE_URL = "https://upload.wikimedia.org/wikipedia/en/3/33/Fresh_Prince_S1_DVD.jpg";
-const CURB_POSTER_URL = "https://m.media-amazon.com/images/M/MV5BZDY1ZGM4OGItMWMyNS00MDAyLWE2Y2MtZTFhMTU0MGI5ZDFlXkEyXkFqcGdeQXVyMDc5ODIzMw@@._V1_FMjpg_UX1000_.jpg";
-const EAST_LOS_HIGH_POSTER_URL = "https://static.wikia.nocookie.net/hulu/images/6/64/East_Los_High.jpg";
-
-// This is an array of strings (TV show titles)
-let titles = [
-    "Fresh Prince of Bel Air",
-    "Curb Your Enthusiasm",
-    "East Los High"
-];
-// Your final submission should have much more data than this, and 
-// you should use more than just an array of strings to store it all.
-
-
-// This function adds cards the page to display the data in the array
-function showCards() {
-    const cardContainer = document.getElementById("card-container");
-    cardContainer.innerHTML = "";
-    const templateCard = document.querySelector(".card");
-    
-    for (let i = 0; i < titles.length; i++) {
-        let title = titles[i];
-
-        // This part of the code doesn't scale very well! After you add your
-        // own data, you'll need to do something totally different here.
-        let imageURL = "";
-        if (i == 0) {
-            imageURL = FRESH_PRINCE_URL;
-        } else if (i == 1) {
-            imageURL = CURB_POSTER_URL;
-        } else if (i == 2) {
-            imageURL = EAST_LOS_HIGH_POSTER_URL;
-        }
-
-        const nextCard = templateCard.cloneNode(true); // Copy the template card
-        editCardContent(nextCard, title, imageURL); // Edit title and image
-        cardContainer.appendChild(nextCard); // Add new card to the container
+class NailService {
+    constructor(title, type, description, time_duration, price) {
+        this.title = title;
+        this.type = type;
+        this.description = description;
+        this.time_duration = time_duration;
+        this.price = price;
     }
 }
 
-function editCardContent(card, newTitle, newImageURL) {
-    card.style.display = "block";
+const services = [
+    new NailService("Mani Regular Polish", "Manicure", "Cozy up your nails with our classic colors. Like a warm hug for your fingertips!", 20, 19),
+    new NailService("Mani Gel Polish", "Manicure", "Stronger than your ex's resolve. Shiny nails for days!", 15, 33),
+    new NailService("Mani w/Regular Design", "Manicure", "Nail art that's VIP. Your fingertips, the life of the party!", 25, 31),
+    new NailService("Mani w/Gel Design", "Manicure", "Red carpet nails. Shine brighter than your future!", 35, 40),
+    new NailService("Mani w/Paraffin Wax Reg", "Manicure", "Soft hands, Bahama vacation. Bye-bye dry skin!", 18, 26),
+    new NailService("Mani w/Paraffin Wax Gel", "Manicure", "Bubble bath for your nails. Luxurious and smooth!", 28, 40),
+    new NailService("Pedi Reg Polish", "Pedicure", "Toe party time. Sparkle like you mean it!", 18, 25),
+    new NailService("Pedi Gel Polish", "Pedicure", "Armor for your toes. Say no to chipped nails!", 25, 39),
+    new NailService("Pedi Acrylic Reg", "Pedicure", "Queen-worthy toes. Fabulous makeover included!", 22, 35),
+    new NailService("Pedi Acrylic Gel", "Pedicure", "Glamorous toes with their own entourage. Ready to shine!", 35, 49),
+    new NailService("Pedi Design Reg", "Pedicure", "Toe art masterpiece. Unique and fabulous!", 27, 32),
+    new NailService("Pedi Design Gel", "Pedicure", "Fashion show for your toes. Style that stands out!", 35, 46),
+];
 
-    const cardHeader = card.querySelector("h2");
-    cardHeader.textContent = newTitle;
+function displayServices(servicesToDisplay) {
+    const servicesList = document.getElementById('services-list');
+    servicesList.innerHTML = '';
 
-    const cardImage = card.querySelector("img");
-    cardImage.src = newImageURL;
-    cardImage.alt = newTitle + " Poster";
-
-    // You can use console.log to help you debug!
-    // View the output by right clicking on your website,
-    // select "Inspect", then click on the "Console" tab
-    console.log("new card:", newTitle, "- html: ", card);
-}
-
-// This calls the addCards() function when the page is first loaded
-document.addEventListener("DOMContentLoaded", showCards);
-
-function quoteAlert() {
-    console.log("Button Clicked!")
-    alert("I guess I can kiss heaven goodbye, because it got to be a sin to look this good!");
-}
-
-function removeLastCard() {
-    titles.pop(); // Remove last item in titles array
-    showCards(); // Call showCards again to refresh
+    servicesToDisplay.forEach(service => {
+        const serviceElem = document.createElement('div');
+        serviceElem.classList.add('service');
+        serviceElem.innerHTML = `
+            <h3>${service.title}</h3>
+            <p>${service.type}</p>
+            <p>${service.description}</p>
+            <p>Time duration: ${service.time_duration} minutes</p>
+            <p>Price: $${service.price}</p>
+            <button onclick="selectService('${service.title}', ${service.price}, ${service.time_duration})">Select</button>
+        `;
+        servicesList.appendChild(serviceElem);
+    });
 }
