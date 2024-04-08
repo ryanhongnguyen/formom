@@ -1,5 +1,7 @@
 const data = 
-`Mani Regular Polish;Manicure;Cozy up your nails with our classic colors. Like a warm hug for your fingertips!;20;19
+`Princess Nails Combo;Combo;Royal pampering with luxurious manicure and pedicure!;90;60
+Ryan's Friend Combo;Combo;Enjoy your discount by being my special friend!;90;50
+Mani Regular Polish;Manicure;Cozy up your nails with our classic colors!;20;19
 Mani Gel Polish;Manicure;Stronger than your ex's resolve. Shiny nails for days!;15;33
 Mani w/Regular Design;Manicure;Nail art that's VIP. Your fingertips, the life of the party!;25;31
 Mani w/Gel Design;Manicure;Red carpet nails. Shine brighter than your future!;35;40
@@ -27,7 +29,7 @@ const lines = data.split('\n');
 const services = lines.map(line => {
     const properties = line.split(';');
     const [title, type, description, time_duration, price] = properties;
-    const service = new NailService(title, type, description, parseInt(time_duration), parseInt(price));
+    const service = new NailService(title, type, description, parseInt(time_duration), parseFloat(price));
     return service;
 });
 
@@ -40,10 +42,9 @@ function displayServices(servicesToDisplay) {
         serviceElem.classList.add('service');
         serviceElem.innerHTML = `
             <h3>${service.title}</h3>
-            <p>${service.type}</p>
-            <p>${service.description}</p>
+            <p>Description: ${service.description}</p>
             <p>Time duration: ${service.time_duration} minutes</p>
-            <p>Price: $${service.price}</p>
+            <p>Price: $${service.price.toFixed(2)}</p>
             <button onclick="selectService('${service.title}', ${service.price}, ${service.time_duration})">Select</button>
         `;
         servicesList.appendChild(serviceElem);
@@ -58,7 +59,7 @@ function selectService(title, price, time_duration) {
     const totalDurationElem = document.getElementById('total-duration');
 
     const listItem = document.createElement('li');
-    listItem.textContent = `${title} - $${price}`;
+    listItem.textContent = `${title} - $${price.toFixed(2)}`;
     selectedServicesList.appendChild(listItem);
 
     const totalPrice = parseFloat(totalPriceElem.textContent.replace('$', ''));
@@ -73,10 +74,14 @@ function selectService(title, price, time_duration) {
     totalDurationElem.textContent = `${totalDuration + time_duration} minutes`;
 }
 
+
 function sortServices(sortBy) {
     let sortedServices = [];
 
     switch (sortBy) {
+        case 'menu':
+            sortedServices = services.slice();
+            break;
         case 'price':
             sortedServices = services.slice().sort((a, b) => a.price - b.price);
             break;
@@ -90,7 +95,7 @@ function sortServices(sortBy) {
             sortedServices = services.filter(service => service.type === 'Pedicure');
             break;
         default:
-            sortedServices = services.slice(); // Default to original order
+            sortedServices = services.slice();
             break;
     }
     displayServices(sortedServices);
@@ -98,7 +103,7 @@ function sortServices(sortBy) {
 
 function searchServices() {
     const searchInput = document.getElementById('search-input').value.toLowerCase();
-    const searchTerms = searchInput.split(' ').filter(term => term.trim() !== ''); // Split search input into individual terms
+    const searchTerms = searchInput.split(' ').filter(term => term.trim() !== '');
 
     const filteredServices = services.filter(service => {
         return searchTerms.every(term => service.title.toLowerCase().includes(term));
