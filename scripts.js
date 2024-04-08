@@ -1,6 +1,6 @@
 const data = 
 `Princess Nails Combo;Combo;Royal pampering with luxurious manicure and pedicure!;90;60
-Ryan's Friend Combo;Combo;Enjoy your discount by being my special friend!;90;50
+Ryan Friends Combo;Combo;Enjoy your discount by being my special friend!;90;50
 Mani Regular Polish;Manicure;Cozy up your nails with our classic colors!;20;19
 Mani Gel Polish;Manicure;Stronger than your ex's resolve. Shiny nails for days!;15;33
 Mani w/Regular Design;Manicure;Nail art that's VIP. Your fingertips, the life of the party!;25;31
@@ -13,6 +13,9 @@ Pedi Acrylic Reg;Pedicure;Queen-worthy toes. Fabulous makeover included!;22;35
 Pedi Acrylic Gel;Pedicure;Glamorous toes with their own entourage. Ready to shine!;35;49
 Pedi Design Reg;Pedicure;Toe art masterpiece. Unique and fabulous!;27;32
 Pedi Design Gel;Pedicure;Fashion show for your toes. Style that stands out!;35;46`;
+
+const introductionText = 'Hello Santa Monica folks! Had your fill of the same old beaches? Give Long Beach a shot, and while you\'re at it, swing by my mom\'s nail salon. I guarantee you the full set of killer nails to show off afterward and a great experience. If you had enough of Snapchat chats, how about a chat with my mom while having your nails done? I bet if my mom knew English better, she could have been a stand-up comedian. But as a nail worker, she can still make you laugh by tickling your funny bone (and maybe your feet too)!'
+const headerPicture = "https://i.postimg.cc/QMGy1LKh/IMG-7776.avif";
 
 class NailService {
     constructor(title, type, description, time_duration, price) {
@@ -120,5 +123,14 @@ function searchServices() {
 }
 
 window.onload = function() {
+    const introductionElement = document.getElementById('introduction-text');
+    introductionElement.textContent = introductionText;
+
+    const headerPictureElement = document.querySelector('.mom-picture');
+    const momImgage = document.createElement('img');
+    momImgage.src = headerPicture;
+    momImgage.alt = "My Mom's Picture";
+    headerPictureElement.appendChild(momImgage);
+
     displayServices(services);
 };
