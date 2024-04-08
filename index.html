@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <title>Mom's Nail Services</title>
     <meta name="description" content="A catalog of nail services by my mom in Long Beach.">
@@ -9,31 +8,35 @@
     <script type="text/javascript" src="scripts.js"></script>
 </head>
 <body>
-    <header class="main-header">
-        <div class="mom-picture">
-            <img src="https://i.postimg.cc/QMGy1LKh/IMG-7776.avif" alt="My Mom's Picture">
-        </div>
-        <div class="introduction">
+    <header class="top-header">
+        <div>
             <h1>Welcome to My Mom's Nail Services</h1>
-            <p>Hello Santa Monica folks! Had your fill of the same old beaches? Give Long Beach a shot, and while you're at it, swing by my mom's nail salon. I guarantee you the full set of killer nails to show off afterward and a great experience. If you had enough of Snapchat chats, how about a chat with my mom while having your nails done? I bet if my mom knew English better, she could have been a stand-up comedian. But as a nail worker, she can still make you laugh by tickling your funny bone (and maybe your feet too)!</p>
+        </div>
+        <div class="header-content">
+            <div class="mom-picture">
+                <img src="https://i.postimg.cc/QMGy1LKh/IMG-7776.avif" alt="My Mom's Picture">
+            </div>
+            <div class="introduction">
+                <p>Hello Santa Monica folks! Had your fill of the same old beaches? Give Long Beach a shot, and while you're at it, swing by my mom's nail salon. I guarantee you the full set of killer nails to show off afterward and a great experience. If you had enough of Snapchat chats, how about a chat with my mom while having your nails done? I bet if my mom knew English better, she could have been a stand-up comedian. But as a nail worker, she can still make you laugh by tickling your funny bone (and maybe your feet too)!</p>
+            </div>
         </div>
     </header>
-    
-    <div id="sorting-options">
-        <button onclick="sortServices('price')">Sort by Price</button>
-        <button onclick="sortServices('time')">Sort by Time</button>
+
+    <div id="sorting-options" class="options-container">
         <button onclick="sortServices('manicure')">Manicure</button>
         <button onclick="sortServices('pedicure')">Pedicure</button>
+        <button onclick="sortServices('price')">Sort by Price</button>
+        <button onclick="sortServices('time')">Sort by Time</button>
         <input type="text" id="search-input" placeholder="Search service..." oninput="searchServices()">
         <p id="search-result"></p>
     </div>
 
-    <div class="container">
-        <div id="services-list" class="column">
+    <div class="main-container">
+        <div id="services-list" class="services-column">
             <!-- Array of services appear here -->
         </div>
-        
-        <div id="selected-services" class="column">
+
+        <div id="selected-services" class="selected-services-column">
             <h2>Selected Services</h2>
             <ul id="selected-services-list">
                 <!-- Selected services appear here -->
@@ -46,7 +49,5 @@
             </div>
         </div>
     </div>
-    
 </body>
-
 </html>

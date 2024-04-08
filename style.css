@@ -4,75 +4,78 @@ body {
     padding: 0;
 }
 
-.main-header {
-    background-color: rgba(180, 33, 33, 0.3);
+.top-header {
+    background-color: #9b7878;
     padding: 20px;
     text-align: center;
 }
 
-.container {
+.header-content {
     display: flex;
+}
+
+.mom-picture img {
+    flex:1;
+    width: 100%;
+}
+
+.introduction {
+    flex:2;
+}
+
+.options-container {
     padding: 20px;
+    margin: 10px;
 }
 
-#services-list {
+.options-container button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+#search-input {
+    height: 30px;
+    border: 3px solid #4CAF50;
+    border-radius: 5px;
+}
+
+.main-container {
+    display: flex;
+    padding: 0px;
+    margin-left: 30px;
+}
+
+.services-column {
     flex: 2;
-    padding-right: 10px; /* Add padding between columns */
+    max-height: 600px;
+    overflow-y: auto;
 }
 
-#selected-services {
-    flex: 1;
-    padding-left: 10px; /* Add padding between columns */
-}
-
-.column {
-    flex: 1;
-    overflow-y: auto; /* Add scrollbar for vertical overflow */
-    max-height: 700px; /* Set maximum height for the column */
-}
-
-.service {
-    border: 1px solid #ccc;
+.service { 
+    border: 1px solid #9b7878;
     border-radius: 5px;
     padding: 10px;
     margin-bottom: 10px;
 }
 
-.selected-service {
-    margin-bottom: 5px;
-}
-
-button {
+.services-column button {
     background-color: #4CAF50;
     color: white;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin-right: 20px;
 }
 
-button:hover {
-    background-color: #45a049;
+.selected-services-column {
+    flex: 1;
+    padding-left: 15px; 
 }
 
-#totals {
-    margin-top: 20px;
-}
 
-#sorting-options {
-    padding: 20px;
-}
-
-#sorting-options button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-right: 10px;
-}
-
-#sorting-options button:hover {
-    background-color: #45a049;
-}
