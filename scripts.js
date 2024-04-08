@@ -40,7 +40,7 @@ const services = lines.map(line => {
     return service;
 });
 
-function displayServices(servicesToDisplay) {
+const displayServices = (servicesToDisplay) => {
     const servicesList = document.getElementById('services-list');
     servicesList.innerHTML = '';
 
@@ -69,9 +69,9 @@ function displayServices(servicesToDisplay) {
     
         servicesList.appendChild(serviceElem);
     });
-}
+};
 
-function selectService(title, price, timeDuration) {
+const selectService = (title, price, timeDuration) => {
     const selectedServicesList = document.getElementById('selected-services-list');
     const totalPriceElem = document.getElementById('total-price');
     const taxElem = document.getElementById('tax');
@@ -92,9 +92,9 @@ function selectService(title, price, timeDuration) {
 
     const totalDuration = parseInt(totalDurationElem.textContent.replace(' minutes', ''));
     totalDurationElem.textContent = `${totalDuration + timeDuration} minutes`;
-}
+};
 
-function sortServices(sortBy) {
+const sortServices = (sortBy) => {
     let sortedServices = [];
 
     switch (sortBy) {
@@ -117,9 +117,9 @@ function sortServices(sortBy) {
             sortedServices = services.slice();
     }
     displayServices(sortedServices);
-}
+};
 
-function searchServices() {
+const searchServices = () => {
     const searchInput = document.getElementById('search-input').value.toLowerCase();
     const searchTerms = searchInput.split(' ').filter(term => term.trim() !== '');
 
@@ -135,9 +135,9 @@ function searchServices() {
     }
 
     displayServices(filteredServices);
-}
+};
 
-window.onload = function() {
+window.onload = () => {
     const introductionElement = document.getElementById('introduction-text');
     introductionElement.textContent = introductionText;
 
