@@ -25,7 +25,7 @@ Mani w/Gel Design;Manicure;Green pearl nails. Shine brighter than your future!;3
 Mani w/Paraffin Wax Reg;Manicure;Soft hands, Bahama vacation. Bye-bye dry skin!;18;26;https://i.postimg.cc/c4X28QFw/mani5.png
 Mani w/Paraffin Wax Gel;Manicure;Bubble bath for your nails. Luxurious and smooth!;28;40;https://i.postimg.cc/tCX8TrN9/mani6.png
 Pedi Reg Polish;Pedicure;Toe party time. Sparkle like you mean it!;18;25;https://i.postimg.cc/1tGYR6gg/pedi1.png
-Ped i Gel Polish;Pedicure;Armor for your toes. Say no to chipped nails!;25;39;https://i.postimg.cc/DzbMDRnP/pedi2.png
+Pedi Gel Polish;Pedicure;Armor for your toes. Say no to chipped nails!;25;39;https://i.postimg.cc/DzbMDRnP/pedi2.png
 Pedi Acrylic Reg;Pedicure;Queen-worthy toes. Fabulous makeover included!;22;35;https://i.postimg.cc/K8jV7RWV/pedi3.png
 Pedi Acrylic Gel;Pedicure;Glamorous toes with their own entourage. Ready to shine!;35;49;https://i.postimg.cc/VkhhKzQN/pedi4.png
 Pedi Design Reg;Pedicure;Toe art masterpiece. Unique and fabulous!;27;32;https://i.postimg.cc/yxT5j9sq/pedi5.png
