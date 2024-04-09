@@ -32,7 +32,7 @@ Pedi Design Reg;Pedicure;Toe art masterpiece. Unique and fabulous!;27;32;https:/
 Pedi Design Gel;Pedicure;Fashion show for your toes. Style that stands out!;35;46;https://i.postimg.cc/qBc9pfnm/pedi6.png`;
 
 // Intro text in the deader
-const introductionText = 'Hello Santa Monica folks! Had your fill of the same old beaches? Give Long Beach a shot, and while you\'re at it, swing by my mom\'s nail salon. I guarantee you the full set of killer nails to show off afterward and a great experience. If you had enough of Snapchat chats, how about a chat with my mom while having your nails done? I bet if my mom knew English better, she could have been a stand-up comedian. But as a nail worker, she can still make you laugh by tickling your funny bone (and maybe your feet too)!'
+const introductionText = 'Hello Santa Monica folks! Had your fill of the same old beaches? Give Long Beach a shot, and while you\'re at it, swing by my mom\'s nail salon. I guarantee you the full set of killer nails to show off afterward and a great experience. If you had enough of Snapchat chats, how about a chat with my mom while having your nails done? I bet if my mom knew English better, she could have been a stand-up comedian. But as a nail worker, she can still make you laugh by tickling your feet!'
 // My mom image on top left of header
 const headerPicture = "https://i.postimg.cc/Gtc4sJ9Z/momheader.png";
 
