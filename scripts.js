@@ -106,9 +106,16 @@ const selectService = (title, price, timeDuration) => {
     const totalElem = document.getElementById('total');
     const totalDurationElem = document.getElementById('total-duration');
 
-    // This to display the selected items
+    // Create list item for selected service
     const listItem = document.createElement('li');
     listItem.textContent = `${title} - $${price.toFixed(2)}`;
+
+    // Create remove button associated with list item
+    const removeBtn = document.createElement('button');
+    removeBtn.innerText = 'Remove';
+    removeBtn.addEventListener("click", removeItem);
+    listItem.insertBefore(removeBtn, listItem.firstChild);
+
     selectedServicesList.appendChild(listItem);
 
     // This summary work by using the previous summary (0 if is the first time) adding with the just selected item
@@ -173,6 +180,32 @@ const searchServices = () => {
 
     displayServices(filteredServices);
 };
+
+const removeItem = (event) => {
+    // Update total price, tax, total incl tax, total time duration
+    const serviceName = event.target.parentElement.textContent.substring(6).split(' - ')[0];
+    const serviceIndex = services.findIndex(x => x.title == serviceName);
+    console.log(services[serviceIndex]);
+
+    const totalPriceElem = document.getElementById('total-price');
+    const taxElem = document.getElementById('tax');
+    const totalElem = document.getElementById('total');
+    const totalDurationElem = document.getElementById('total-duration');
+
+    const totalPrice = parseFloat(totalPriceElem.textContent.replace('$', ''));
+    totalPriceElem.textContent = `$${(totalPrice - services[serviceIndex].price).toFixed(2)}`;
+
+    const tax = parseFloat(totalPriceElem.textContent.replace('$', '')) * 0.1025;
+    taxElem.textContent = `$${tax.toFixed(2)}`;
+
+    totalElem.textContent = `$${(totalPrice - services[serviceIndex].price + tax).toFixed(2)}`;
+
+    const totalDuration = parseInt(totalDurationElem.textContent.replace(' minutes', ''));
+    totalDurationElem.textContent = `${totalDuration - services[serviceIndex].timeDuration} minutes`;
+
+    // Remove DOM element
+    event.target.parentElement.remove();
+}
 
 window.onload = () => {
     // This set up the initial display
