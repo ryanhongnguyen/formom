@@ -17,7 +17,7 @@
 
 const data = 
 `Princess Nails Combo;Combo;Royal pampering with luxurious manicure and pedicure!;90;60;https://i.postimg.cc/QCDwcSLk/combo1.png
-Ryan Friends Combo;Combo;Enjoy your discount by being my special friend!;90;50;https://i.postimg.cc/Pr3VqdqM/combo2.png
+Ryan\'s Friends Combo;Combo;Enjoy your discount by being my special friend!;90;50;https://i.postimg.cc/Pr3VqdqM/combo2.png
 Mani Regular Polish;Manicure;Cozy up your nails with our classic colors!;20;19;https://i.postimg.cc/HssPHrTx/mani1.png
 Mani Gel Polish;Manicure;Stronger than your ex's resolve. Shiny nails for days!;15;33;https://i.postimg.cc/kGw1Kmvq/mani2.png
 Mani w/Regular Design;Manicure;Doing nails is an art. Your fingertips, the life of the party!;25;31;https://i.postimg.cc/3rZbPX5V/mani3.png
@@ -32,7 +32,7 @@ Pedi Design Reg;Pedicure;Toe art masterpiece. Unique and fabulous!;27;32;https:/
 Pedi Design Gel;Pedicure;Fashion show for your toes. Style that stands out!;35;46;https://i.postimg.cc/qBc9pfnm/pedi6.png`;
 
 // Intro text in the deader
-const introductionText = 'Hello Santa Monica folks! Had your fill of the same old beaches? Give Long Beach a shot, and while you\'re at it, swing by my mom\'s nail salon. I guarantee you the full set of killer nails to show off afterward and a great experience. If you had enough of Snapchat chats, how about a chat with my mom while having your nails done? I bet if my mom knew English better, she could have been a stand-up comedian. But as a nail worker, she can still make you laugh by tickling your feet!'
+const introductionText = 'Hi my mom\'s customers! Thank you for having my mom do your nail. I hope this site help you pick the services you want easily. If it\'s not, just pick the Ryan\'s Friends Combo then. If you feel bored enough, could you please teach my mom some English words? I guarantee you the full set of killer nails to show off afterward if you do so and make her happy. I bet if my mom knew English better, she could have been a stand-up comedian. But for now, she can still make you laugh by tickling your feet!'
 // My mom image on top left of header
 const headerPicture = "https://i.postimg.cc/Gtc4sJ9Z/momheader.png";
 
